@@ -1,0 +1,48 @@
+.app-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.tables-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.product-table {
+  border: 1px solid #ccc;
+  min-width: 300px;
+  flex: 1;
+}
+
+.table-header,
+.table-row {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.table-header {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+.table-cell {
+  flex: 1;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+ color: white;
+ background-color: crimson;
+}
