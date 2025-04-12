@@ -92,7 +92,7 @@ const splitIntoPackages = (items, existingPackageCount = 0) => {
   }
 
   return packages.map((pkg, idx) => ({
-    id: existingPackageCount + idx + 1,  // Continue numbering from existing packages
+    id: existingPackageCount + idx + 1,  
     items: pkg.items,
     totalPrice: pkg.totalPrice,
     totalWeight: pkg.totalWeight,
@@ -106,7 +106,7 @@ const App = () => {
   const [availableItems, setAvailableItems] = useState([])
   const [activePackage, setActivePackage] = useState(null)
 
-  // Load packages from localStorage on initial render
+ 
   useEffect(() => {
     const savedPackages = localStorage.getItem(STORAGE_KEY);
     if (savedPackages) {
@@ -114,7 +114,7 @@ const App = () => {
     }
   }, []);
 
-  // Save packages to localStorage whenever they change
+ 
   useEffect(() => {
     if (packages.length > 0) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(packages));
@@ -133,10 +133,8 @@ const App = () => {
     const result = splitIntoPackages(selectedItems, packages.length)
     const newPackages = [...packages, ...result]
     setPackages(newPackages)
-    // Set remaining items that weren't packed (if any)
     const packedItems = result.flatMap(pkg => pkg.items)
     setAvailableItems(selectedItems.filter(item => !packedItems.includes(item)))
-    // Clear selection after order is placed
     setSelectedItems([])
   }
 
@@ -168,7 +166,6 @@ const App = () => {
       return updatedPackages
     })
 
-    // Remove from available items
     setAvailableItems(prev => prev.filter(i => i !== item))
     setActivePackage(null)
   }
